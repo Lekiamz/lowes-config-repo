@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: gateway-service
+
+  cloud:
+    gateway:
+      routes:
+        - id: supplier-route
+          uri: lb://supplier-service
+          predicates:
+            - Path=/api/**
+          filters:
+          # - StripPrefix=1
+          # - PrefixPath=/api/suppliers
+          # - CircuitBreaker=myCircuitBreaker
+
+server:
+  port: 8111
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
