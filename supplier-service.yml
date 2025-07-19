@@ -49,12 +49,21 @@ resilience4j.circuitbreaker:
       waitDurationInOpenState: 5s
       eventConsumerBufferSize: 10
 
-resilience4j.timelimiter:
-  configs:
-    default:
-      timeoutDuration: 2s
-      cancelRunningFuture: true
-        
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        eventConsumerBufferSize: 10
+
+  timelimiter:
+    configs:
+      default:
+        timeoutDuration: 2s
+        cancelRunningFuture: true
+
 management:
   endpoints:
     web:
@@ -63,4 +72,5 @@ management:
   health:
     circuitbreakers:
       enabled: true
+
     
