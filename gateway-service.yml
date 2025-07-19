@@ -8,7 +8,7 @@ spring:
         - id: supplier-route
           uri: lb://supplier-service
           predicates:
-            - Path=/api/**
+            - Path=/matchx/api/**
           filters:
           # - StripPrefix=1
           # - PrefixPath=/api/suppliers
