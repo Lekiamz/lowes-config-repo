@@ -8,11 +8,21 @@ spring:
         - id: supplier-route
           uri: lb://supplier-service
           predicates:
-            - Path=/matchx/api/**
+            - Path=/matchx/api/suppliers/**
           filters:
           # - StripPrefix=1
           # - PrefixPath=/api/suppliers
           # - CircuitBreaker=myCircuitBreaker
+          
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/matchx/api/products/**
+
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/matchx/api/orders/**
 
 server:
   port: 8111
