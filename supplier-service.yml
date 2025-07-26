@@ -35,7 +35,7 @@ resilience4j:
         slidingWindowType: TIME_BASED
         minimumNumberOfCalls: 5
         slowCallRateThreshold: 50
-        slowCallDurationThreshold: 5s
+        slowCallDurationThreshold: 15s
         failureRateThreshold: 50
         permittedNumberOfCallsInHalfOpenState: 3
         automaticTransitionFromOpenToHalfOpenEnabled: true
