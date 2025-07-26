@@ -9,11 +9,11 @@ spring:
           uri: lb://supplier-service
           predicates:
             - Path=/matchx/api/suppliers/**
-          filters:
-          # - StripPrefix=1
-          # - PrefixPath=/api/suppliers
-          # - CircuitBreaker=myCircuitBreaker
-          
+          # filters:
+          #   - StripPrefix=1
+          #   - PrefixPath=/api/suppliers
+          #   - CircuitBreaker=myCircuitBreaker
+
         - id: product-service
           uri: lb://product-service
           predicates:
@@ -24,10 +24,11 @@ spring:
           predicates:
             - Path=/matchx/api/orders/**
 
-         - id: notification-service
+        - id: notification-service
           uri: lb://notification-service
           predicates:
-            - Path=/matchx/api/notifications
+            - Path=/matchx/api/notifications/**
+        
 
 server:
   port: 8111
