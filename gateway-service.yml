@@ -9,6 +9,18 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: auth-login
+          uri: lb://auth-service
+          predicates:
+            - Path=/matchx/api/auth/**
+          
+
+        - id: user-registration
+          uri: lb://auth-service
+          predicates:
+            - Path=/matchx/api/users/**
+         
+
         - id: supplier-route
           uri: lb://supplier-service
           predicates:
