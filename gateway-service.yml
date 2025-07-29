@@ -4,6 +4,7 @@ spring:
   security:
     jwt:
       secret-key: YourVerySecretKey
+      token-duration: 1D
 
   cloud:
     gateway:
