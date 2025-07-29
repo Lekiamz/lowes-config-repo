@@ -1,6 +1,9 @@
 spring:
   application:
     name: gateway-service
+  security:
+  jwt:
+    secret-key: YourVerySecretKey
 
   cloud:
     gateway:
