@@ -9,41 +9,40 @@ spring:
 
   cloud:
     gateway:
-      mvc:
-        routes:
-          - id: auth-login
-            uri: lb://auth-service
-            predicates:
-              - Path=/matchx/api/auth/**
+      routes:
+        - id: auth-login
+          uri: lb://auth-service
+          predicates:
+            - Path=/matchx/api/auth/**
 
-          - id: user-registration
-            uri: lb://auth-service
-            predicates:
-              - Path=/matchx/api/users/**
+        - id: user-registration
+          uri: lb://auth-service
+          predicates:
+            - Path=/matchx/api/users/**
 
-          - id: supplier-route
-            uri: lb://supplier-service
-            predicates:
-              - Path=/matchx/api/suppliers/**
-            # filters:
-            #   - StripPrefix=1
-            #   - PrefixPath=/api/suppliers
-            #   - CircuitBreaker=myCircuitBreaker
+        - id: supplier-route
+          uri: lb://supplier-service
+          predicates:
+            - Path=/matchx/api/suppliers/**
+          # filters:
+          #   - StripPrefix=1
+          #   - PrefixPath=/api/suppliers
+          #   - CircuitBreaker=myCircuitBreaker
 
-          - id: product-service
-            uri: lb://product-service
-            predicates:
-              - Path=/matchx/api/products/**
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/matchx/api/products/**
 
-          - id: order-service
-            uri: lb://order-service
-            predicates:
-              - Path=/matchx/api/orders/**
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/matchx/api/orders/**
 
-          - id: notification-service
-            uri: lb://notification-service
-            predicates:
-              - Path=/matchx/api/notifications/**
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/matchx/api/notifications/**
 
 server:
   port: 8111
