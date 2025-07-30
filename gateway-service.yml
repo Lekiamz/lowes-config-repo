@@ -43,6 +43,36 @@ spring:
           uri: lb://notification-service
           predicates:
             - Path=/matchx/api/notifications/**
+          
+        - id: auth-service-swagger
+          uri: lb://auth-service
+          predicates:
+            - Path=/matchx/api/auth/v3/api-docs, /matchx/api/auth/swagger-ui.html
+          filters:
+            - StripPrefix=3
+
+        - id: product-service-swagger
+          uri: lb://product-service
+          predicates:
+            - Path=/matchx/api/products/v3/api-docs, /matchx/api/products/swagger-ui.html
+          filters:
+            - StripPrefix=3
+
+        - id: order-service-swagger
+          uri: lb://order-service
+          predicates:
+            - Path=/matchx/api/orders/v3/api-docs, /matchx/api/orders/swagger-ui.html
+          filters:
+            - StripPrefix=3
+
+        - id: supplier-service-swagger
+          uri: lb://supplier-service
+          predicates:
+            - Path=/matchx/api/suppliers/v3/api-docs, /matchx/api/suppliers/swagger-ui.html
+          filters:
+            - StripPrefix=3
+    
+            
 
 springdoc:
   swagger-ui:
