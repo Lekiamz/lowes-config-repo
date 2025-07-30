@@ -44,6 +44,18 @@ spring:
           predicates:
             - Path=/matchx/api/notifications/**
 
+springdoc:
+  swagger-ui:
+    urls:
+      - name: auth-service
+        url: /matchx/api/auth/v3/api-docs
+      - name: product-service
+        url: /matchx/api/products/v3/api-docs
+      - name: order-service
+        url: /matchx/api/orders/v3/api-docs
+      - name: supplier-service
+        url: /matchx/api/suppliers/v3/api-docs
+
 server:
   port: 8111
 
