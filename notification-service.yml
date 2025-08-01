@@ -4,7 +4,7 @@ server:
 eureka:
   client:
     service-url:
-      default-zone: http://localhost:8761/eureka
+      default-zone: http://regsitry-service:8761/eureka
     register-with-eureka: true
     fetch-registry: true
   instance:
@@ -18,7 +18,7 @@ management:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/notificationdb
+    url: jdbc:postgresql://postgres-db:5432/notificationdb
     username: postgres
     password: postgres
   jpa:
@@ -27,7 +27,7 @@ spring:
     show-sql: true
 
 kafka:
-  bootstrap-servers: localhost:9092
+  bootstrap-servers: kafka1:9092
   consumer:
     group-id: notification-group
     auto-offset-reset: earliest
