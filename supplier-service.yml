@@ -2,7 +2,7 @@ spring:
   application:
     name: supplier-service
   kafka:
-    bootstrap-servers: kafka2:9093
+    bootstrap-servers: kafka1:9092
 
   datasource:
     url: jdbc:postgresql://postgres-db:5432/supplierdb
