@@ -1,6 +1,10 @@
 spring:
   application:
     name: product-service
+  
+  cloud:
+    config:
+      override-system-properties: true
 
   datasource:
     url: jdbc:postgresql://postgres-db:5432/productdb
